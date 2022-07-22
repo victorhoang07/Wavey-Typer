@@ -8,14 +8,15 @@ export default class Game {
 
     constructor () {
         this.started = false
+        this.currentCharIndex = 0;
         this.wordArea = document.querySelector(".word-area")
         this.inputArea = document.querySelector(".input-field")
     }
 
     start () {
-        this.generateWords()
-        this.started = true
-        this.inputEventListener()
+        this.generateWords();
+        this.started = true;
+        this.inputEventListener();
 
     }
     generateWords() {
@@ -32,11 +33,26 @@ export default class Game {
     }
 
     initTyping() {
-        console.log('hi')
-    }
+        const characters = this.wordArea.querySelectorAll("span")
+        let typedChars = this.inputArea.value.split('')[this.currentCharIndex]
+        if (typedChars == null) {
+            this.currentCharIndex--;
+            characters[this.currentCharIndex].classList.remove("correct", "incorrect")
+        } else {
 
+            if (characters[this.currentCharIndex].innerText === typedChars) {
+                characters[this.currentCharIndex].classList.add("correct")
+            } else {
+                characters[this.currentCharIndex].classList.add("incorrect")
+            }
+            // console.log(typedChars)
+            this.currentCharIndex++;
+        }
+    }
+    
+    
     inputEventListener (){
-        this.inputArea.addEventListener("keydown", this.initTyping)
+        this.inputArea.addEventListener("input",() => this.initTyping())
     }
 
 }

@@ -12,3 +12,16 @@ canvas {
   justify-content: center;
   align-items: center;
 }
+
+span {
+  font-size: 30px;
+}
+
+.word-area .correct {
+  color: green;
+}
+
+.word-area .incorrect {
+  color: red;
+  background-color: lightpink;
+}
