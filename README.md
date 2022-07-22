@@ -21,7 +21,8 @@ In Wavey Typer, players will be able to:
 
  # Wireframe
 
- This game will take place in the player's browser. There will be simple and intuitive buttons to navigate the through the webpage. There will be a button for the instructions and lo-fi music option. It will also feature links to my Github and Linkedin profile.
+ This game will take place in the player's browser. There will be simple and intuitive buttons to navigate the through the webpage. There will be a button for the instructions and lo-fi music option. It will also feature links to my Github and Linkedin profile. 
+ https://wireframe.cc/lwmihp
  ![Alt text](/wireframe.png)
 
 
