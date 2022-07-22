@@ -1,3 +1,5 @@
+
+
 canvas {
     background-color: black;
     position: absolute;
@@ -22,4 +24,29 @@ span {
     color: red;
     background-color: lightpink;
     
+}
+.word-area span {
+    position: relative;
+}
+
+.current {
+    color: #17A2B8
+}
+
+.current::before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 5px;
+    background: #17A2B8;
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink{
+  20%{ 
+    opacity: 1; 
+  }
 }
