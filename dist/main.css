@@ -32,10 +32,6 @@ canvas {
   padding: 10px;
 }
 
-span {
-  font-size: 30px;
-}
-
 .word-area .correct {
   color: green;
 }

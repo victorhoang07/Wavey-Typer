@@ -16,11 +16,11 @@ export default class Wave {
             frequency: 0.05
         }   
         this.frequency = this.wave1.frequency
-        // this.wave2 = {
-        //     y: this.height/2,
-        //     length: 0.01,
-        //     amplitude: 100
-        // }   
+        this.color = {
+            h: 200,
+            s: 50,
+            l: 50
+        }
         this.gui.add(this.wave1, 'y', 0, this.height)
         this.gui.add(this.wave1, 'length', -0.01, 0.10)
         this.gui.add(this.wave1, 'amplitude', -300, 300)
@@ -35,8 +35,8 @@ export default class Wave {
         for (let i = 1; i < this.width; i++) {
             ctx.lineTo(i, this.height / 4 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude * Math.sin(this.frequency)) 
         }
-        ctx.lineWidth = 10
-        ctx.strokeStyle = 'hsl(100, 50%, 50%)'
+        ctx.lineWidth = 5
+        ctx.strokeStyle = `hsl(${this.color.h * Math.sin(this.frequency)}, 50%, 50%)`
         ctx.fillStyle = 'rgba(0,0,10,0.10)'
         ctx.stroke()
         this.frequency += this.wave1.frequency
