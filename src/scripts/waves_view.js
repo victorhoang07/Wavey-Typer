@@ -31,26 +31,26 @@ export default class Wave {
         // ctx.clearRect(0,0, this.width, this.height)
         ctx.fillRect(0,0, this.width, this.height)
         ctx.beginPath()
-        ctx.moveTo(0, this.height / 4)
+        ctx.moveTo(-20, this.height / 4)
         for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i, this.wave1.y / 4 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude)
+            ctx.lineTo(i, this.height / 4 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude * Math.sin(this.frequency)) 
         }
         ctx.lineWidth = 10
         ctx.strokeStyle = 'hsl(100, 50%, 50%)'
-        ctx.fillStyle = 'rgba(0,0,10,0.05)'
+        ctx.fillStyle = 'rgba(0,0,10,0.10)'
         ctx.stroke()
+        this.frequency += this.wave1.frequency
     }
 
     draw2 (ctx) {
         // ctx.clearRect(0,0, this.width, this.height)
         ctx.beginPath()
-        ctx.moveTo(0, this.height / 4 )
+        ctx.moveTo(-20, this.height / 1.3 )
         for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i,this.wave1.y /1.3 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude)
+            ctx.lineTo(i,this.height /1.3 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude * Math.sin(this.frequency))
         }
         
         ctx.stroke()
-        this.frequency += this.wave1.frequency
     }
 
 }

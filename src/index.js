@@ -1,6 +1,5 @@
 import Game from "./scripts/game"
 import Wave from "./scripts/waves_view"
-// import * as dat from 'dat.gui';
 
 document.addEventListener("DOMContentLoaded", function() {
     const game = new Game
@@ -12,17 +11,18 @@ document.addEventListener("DOMContentLoaded", function() {
     canvas.height = window.innerHeight;
     
     let waves = new Wave(canvas, ctx, game)
-    waves.draw1(ctx)
-    waves.draw2(ctx)
+    // waves.draw1(ctx)
+    // waves.draw2(ctx)
 
-
+    // let yes = tru
     function animate () {
     requestAnimationFrame(animate)
     waves.draw1(ctx)
     waves.draw2(ctx)
     }
-
-    animate()
+    window.addEventListener("keydown", animate, {once: true})
+    // animate()
+    
 
 
     window.addEventListener('keydown', function (e) {
