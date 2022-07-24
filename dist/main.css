@@ -28,8 +28,18 @@ canvas {
   color: white;
   text-align: center;
   margin: 20px;
-  width: 100%;
+  width: 95%;
   padding: 10px;
+}
+
+span {
+  font-size: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 1px;
+}
+
+.word-area {
+  color: lightgrey;
 }
 
 .word-area .correct {

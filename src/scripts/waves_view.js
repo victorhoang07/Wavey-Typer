@@ -45,9 +45,9 @@ export default class Wave {
     draw2 (ctx) {
         // ctx.clearRect(0,0, this.width, this.height)
         ctx.beginPath()
-        ctx.moveTo(-20, this.height / 1.3 )
+        ctx.moveTo(-20, this.height / 1.1 )
         for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i,this.height /1.3 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude * Math.sin(this.frequency))
+            ctx.lineTo(i,this.height /1.1 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude * Math.sin(this.frequency))
         }
         
         ctx.stroke()

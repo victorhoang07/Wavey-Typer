@@ -11,6 +11,8 @@ export default class Game {
         this.mistakes = 0
         this.timer = 15
         this.numChars = 0
+        this.wpm = 0
+        this.accuracy = 0
         this.wordArea = document.querySelector(".word-area")
         this.inputArea = document.querySelector(".input-field")
         this.decrementTimer = this.decrementTimer.bind(this)
@@ -27,9 +29,7 @@ export default class Game {
         this.decrement = setInterval(this.decrementTimer, 1000)
     }
 
-    // stopTimer () {
-    //     clearInterval(this.decrement)
-    // }
+    
 
     decrementTimer() {
         if (this.timer > 0) {
@@ -46,7 +46,7 @@ export default class Game {
 
 
     generateWords() {
-        for (let i = 0; i < 25; i++)  {
+        for (let i = 0; i < 40; i++)  {
             let randomIndex = Math.floor(Math.random() * Dictionary.length)
             let word = Dictionary[randomIndex].split('')
             word.push(" ") 
@@ -96,7 +96,7 @@ export default class Game {
         })
         this.wpm = (correct / 4.7) * 4
         this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
-        console.log(this.wpm)
+        console.log("wpm:" + this.wpm)
         console.log(this.accuracy)
         
     }
@@ -104,9 +104,9 @@ export default class Game {
     showResults() {
         let li = document.createElement("li")
         let resultsUl = document.querySelector(".results")
-        li.innerText = this.mistakes
-        resultsUl.appendChild(li)
         this.calculateResults()
+        li.innerText = "wpm: " + this.wpm    
+        resultsUl.appendChild(li)
     }
 
 }
