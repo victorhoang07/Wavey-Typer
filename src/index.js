@@ -2,25 +2,25 @@ import Game from "./scripts/game"
 import Wave from "./scripts/waves_view"
 
 document.addEventListener("DOMContentLoaded", function() {
-    const game = new Game
-    game.startGame()
     
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d')
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    const waves = new Wave(canvas, ctx)
+    const game = new Game(canvas, waves ,ctx)
+    game.startGame()
     
-    let waves = new Wave(canvas, ctx, game)
     // waves.draw1(ctx)
     // waves.draw2(ctx)
-
     // let yes = tru
-    function animate () {
-    requestAnimationFrame(animate)
-    waves.draw1(ctx)
-    waves.draw2(ctx)
-    }
-    window.addEventListener("keydown", animate, {once: true})
+    // function animate () {
+    // requestAnimationFrame(animate)
+    // waves.incorrectWave1(ctx)
+    // waves.incorrectWave2(ctx)
+    // }
+    // window.addEventListener("keydown",() => waves.animateIncorrect(ctx), {once: true})
     // animate()
     
 

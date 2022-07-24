@@ -5,8 +5,11 @@ import Dictionary from "./dictionary"
 
 export default class Game {
 
-    constructor () {
+    constructor (canvas, waves,ctx) {
         this.started = false
+        this.waves = waves
+        this.ctx = ctx
+        this.canvas = canvas
         this.currentCharIndex = 0;
         this.mistakes = 0
         this.timer = 15
@@ -58,7 +61,8 @@ export default class Game {
             }
         }
     }
-    initTyping() {
+
+    checkChars () {
  
         const characters = this.wordArea.querySelectorAll("span")
         this.numChars = characters.length
@@ -69,9 +73,15 @@ export default class Game {
         } else {
             if (characters[this.currentCharIndex].innerText === typedChars) {
                 characters[this.currentCharIndex].classList.add("correct")
+                // this.waves.animateCorrect(this.ctx)
+                this.waves.color = 200
+                
             } else {
                 characters[this.currentCharIndex].classList.add("incorrect")
                 this.mistakes++; 
+                // this.ctx.clearRect()
+                // this.waves.animateIncorrect(this.ctx)
+                this.waves.color = 2
             }
             this.currentCharIndex++;
         }
@@ -82,8 +92,8 @@ export default class Game {
     
     
     inputEventListener (){
-        this.inputArea.addEventListener("input",() => this.initTyping())
-        
+        this.inputArea.addEventListener("input",() => this.checkChars())
+        this.inputArea.addEventListener("input",() => this.waves.animateCorrect(this.ctx), {once:true} )
         this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
 
     }
@@ -94,7 +104,7 @@ export default class Game {
         characters.forEach( char => {
             if (char.classList.contains("correct")) correct +=1
         })
-        this.wpm = (correct / 4.7) * 4
+        this.wpm = Math.round(correct / 4.7) * 4
         this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
         console.log("wpm:" + this.wpm)
         console.log(this.accuracy)
