@@ -10,12 +10,7 @@ html, body {
 canvas {
   background-color: black;
   position: absolute;
-  z-index: 0;
-}
-
-#layer2 {
-  z-index: -1;
-  background: blue;
+  opacity: 75%;
 }
 
 .container {

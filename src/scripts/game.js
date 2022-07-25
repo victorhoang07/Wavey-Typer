@@ -106,7 +106,7 @@ export default class Game {
     
     inputEventListener (){
         this.inputArea.addEventListener("input",() => this.checkChars())
-        this.inputArea.addEventListener("input",() => this.waves.animateCorrect(this.ctx), {once:true} )
+        // this.inputArea.addEventListener("input",() => this.waves.animateCorrect(this.ctx), {once:true} )
         this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
 
     }
