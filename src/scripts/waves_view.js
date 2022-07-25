@@ -10,11 +10,12 @@ export default class Wave {
             y: this.height,
             length: 0.01,
             amplitude: 40,
-            frequency: 0.05
+            frequency: 0.025
         }   
         this.frequency = this.wave1.frequency
         this.oppositeDir = -this.frequency // work on this as well
         this.color = 200
+        this.white = 100
         // this.color = {
         //     h: 200,
         //     s: 50,
@@ -28,36 +29,25 @@ export default class Wave {
     animateCorrect (ctx) {
         requestAnimationFrame(() => this.animateCorrect(ctx))
         // this.startCorrect
-        // setTimeout(this.correctWave1(ctx), 2000)
-        // setTimeout(this.correctWave2(ctx), 2000)
-        this.correctWave1(ctx)
-        this.correctWave2(ctx)
-    
+        setTimeout(this.correctWave1(ctx), 2000)
+        setTimeout(this.correctWave2(ctx), 2000)
+        // setTimeout(this.correctWave3(ctx), 2000)
+        // setTimeout(this.correctWave4(ctx), 2000)
     }
-
-    // animateIncorrect (ctx) {
-    //     requestAnimationFrame(() => this.animateIncorrect(ctx))
-       
-    //     this.incorrectWave1(ctx)
-    //     this.incorrectWave2(ctx)
-    // }
-
-
-
 
     correctWave1 (ctx) {
 
         ctx.fillRect(0,0, this.width, this.height)
         ctx.beginPath()
-        ctx.moveTo(-20, this.height / 4)
+        ctx.moveTo(-20, this.height / 11)
         for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i, this.height / 4 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude * Math.sin(this.frequency)) 
-        }                                                            // look here ^^ for backwards, MAKE IT NEGATIVE 
+            ctx.lineTo(i, this.height / 11 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude * Math.sin(this.frequency)) 
+        }                                                            // look here ^^ for backwards, MAKE IT NEGATIVE  maybe create a helper function
         ctx.lineWidth = 5
-        ctx.strokeStyle = `hsl(${this.color * Math.sin(this.frequency)}, 50%, 50%)`
-        ctx.fillStyle = 'rgba(0,0,10,0.10)'
+        ctx.strokeStyle = `hsl(${this.color * Math.sin(this.frequency)}, 50%, ${this.white}%)`
+        ctx.fillStyle = 'rgba(0,0,0,0.03)'
+
         ctx.stroke()
-        this.frequency = 
         this.frequency += this.wave1.frequency
     }
 
@@ -68,33 +58,38 @@ export default class Wave {
         for (let i = 1; i < this.width; i++) {
             ctx.lineTo(i,this.height / 1.1 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude * Math.sin(this.frequency))
         }
-        
         ctx.stroke()
     }
 
-    // incorrectWave1 (ctx) {
+    correctWave3 (ctx) {
     
-    //     ctx.fillRect(0,0, this.width, this.height)
-    //     ctx.beginPath()
-    //     ctx.moveTo(-20, this.height / 4)
-    //     for (let i = 1; i < this.width; i++) {
-    //         ctx.lineTo(i, this.height / 4 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude * Math.sin(this.frequency)) 
-    //     }
-    //     ctx.lineWidth = 5
-    //     ctx.strokeStyle = `hsl(${this.color.h * Math.sin(this.frequency)}, 50%, 50%)`
-    //     ctx.fillStyle = 'rgba(0,0,10,0.10)'
-    //     ctx.stroke()
-    //     this.frequency += this.wave1.frequency
-    // }
+        ctx.fillRect(0,0, this.width, this.height)
+        ctx.beginPath()
+        ctx.moveTo(this.width / 1.1, -20)
+        for (let i = 1; i < this.width; i++) {
+            ctx.lineTo(this.width / 1.1 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude * Math.sin(this.frequency), i) 
+        }
+        ctx.lineWidth = 5
+        ctx.strokeStyle = `hsl(${this.color.h * Math.sin(this.frequency)}, 50%, 50%)`
+        ctx.fillStyle = 'rgba(0,0,10,0.10)'
+        ctx.stroke()
+        this.frequency += this.wave1.frequency
+    }
 
-    // incorrectWave2 (ctx) {
-    //     ctx.beginPath()
-    //     ctx.moveTo(-20, this.height / 1.1 )
-    //     for (let i = 1; i < this.width; i++) {
-    //         ctx.lineTo(i,this.height /1.1 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude * Math.sin(this.frequency))
-    //     }
-        
-    //     ctx.stroke()
-    // }
+    correctWave4 (ctx) {
+    
+        ctx.fillRect(0,0, this.width, this.height)
+        ctx.beginPath()
+        ctx.moveTo(this.width / 10, -20)
+        for (let i = 1; i < this.width; i++) {
+            ctx.lineTo(this.width / 10 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude * Math.sin(this.frequency), i) 
+        }
+        ctx.lineWidth = 5
+        ctx.strokeStyle = `hsl(${this.color.h * Math.sin(this.frequency)}, 50%, 50%)`
+        ctx.fillStyle = 'rgba(0,0,10,0.10)'
+        ctx.stroke()
+        this.frequency += this.wave1.frequency
+    }
+    
 
 }

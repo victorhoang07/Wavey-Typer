@@ -7,27 +7,28 @@ document.addEventListener("DOMContentLoaded", function() {
     const ctx = canvas.getContext('2d')
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
+    window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    })
     const waves = new Wave(canvas, ctx)
     const game = new Game(canvas, waves ,ctx)
-    game.startGame()
-    
-    // waves.draw1(ctx)
-    // waves.draw2(ctx)
-    // let yes = tru
-    // function animate () {
-    // requestAnimationFrame(animate)
-    // waves.incorrectWave1(ctx)
-    // waves.incorrectWave2(ctx)
-    // }
-    // window.addEventListener("keydown",() => waves.animateIncorrect(ctx), {once: true})
-    // animate()
-    
+    setTimeout(waves.animateCorrect(ctx), 2000)
+    // game.startGame()
+    game.readyEventlistener()
 
-
+    var i = 0;
+    var txt = 'Wavey Typer';
+    function typeWriter() {
+            if (i < txt.length) {
+            document.querySelector("h1").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, 250);
+        }
+    }
+    typeWriter()
+    
     // window.addEventListener('keydown', function (e) {
     // document.querySelector('p').innerHTML = `You pressed ${e.key}`;
     // }, false);
-
-    
 })

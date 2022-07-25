@@ -2,10 +2,16 @@
 html, body {margin: 0; height: 100%; overflow: hidden}
 canvas {
     background-color: black;
-//     // position: absolute;
+    position: absolute;
+    z-index: 0;
 //     width: 100%;
 //     height: 100%;
    
+}
+
+#layer2{
+    z-index: -1;
+    background: blue
 }
 
 // #align-canvas{
@@ -39,14 +45,41 @@ canvas {
     padding: 10px;
 }
 
+.center{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10vh;
+    justify-content: center;
+    
+}
 
+h1 {
+    font-size: 40px;
+    // text-align: center;
+
+}
+.start {
+    cursor: pointer;
+    position: absolute;
+    left: 5px;
+    display: inline-block;
+}
 span {
     font-size: 30px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 1px
 }
+
+.word-container {
+    display: flex;
+    margin-top: 20vh;
+    justify-content: center;
+    
+}
 .word-area {
     color: lightgrey;
+    width: 80vw;
+  
 }
 
 .word-area .correct {
@@ -82,4 +115,10 @@ span {
   20%{ 
     opacity: 1; 
   }
+}
+
+.input-field {
+    opacity: 0;
+    z-index: -999;
+    position: absolute
 }

@@ -18,12 +18,20 @@ export default class Game {
         this.accuracy = 0
         this.wordArea = document.querySelector(".word-area")
         this.inputArea = document.querySelector(".input-field")
+        this.ready = document.querySelector("button")
         this.decrementTimer = this.decrementTimer.bind(this)
     }
     
+    readyEventlistener() {
+        // this.ready.preventDefault();
+        this.ready.addEventListener("click", () => this.startGame() )
+    }
+
     startGame () {
+        // this.started = true;
+        const characters = this.wordArea.querySelectorAll("span")
+        characters.forEach( character => character.remove())
         this.generateWords();
-        this.started = true;
         this.inputEventListener();
         this.inputArea.focus()
     }
@@ -42,7 +50,10 @@ export default class Game {
         } 
         else { 
             clearInterval(this.decrement)
+            this.waves.white = 100
             this.showResults()
+            const characters = this.wordArea.querySelectorAll("span")
+            characters.forEach( character => character.remove())
         }
     }
 
@@ -75,7 +86,7 @@ export default class Game {
                 characters[this.currentCharIndex].classList.add("correct")
                 // this.waves.animateCorrect(this.ctx)
                 this.waves.color = 200
-                
+                this.waves.white = 50
                 
             } else {
                 characters[this.currentCharIndex].classList.add("incorrect")
@@ -108,7 +119,7 @@ export default class Game {
         })
         this.wpm = Math.round(correct / 4.7) * 4
         this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
-        console.log("wpm:" + this.wpm)
+        
         console.log(this.accuracy)
         
     }

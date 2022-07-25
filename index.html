@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./src/styles/reset.css" />
     <link rel="stylesheet" href="./dist/main.css" />
+
     <script src="./dist/main.js"></script>
     <title>Wavey Typer</title>
   </head>
@@ -18,18 +19,24 @@
 
     <div class="container">
         <canvas id="mycanvas"></canvas>
+        <canvas id="layer2"></canvas>
           <div id="overlay">
-            <h1 >Wavey Typer</h1>
-              
-            <b>30</b>
-              
-            <div class="word-area"></div>
-                  
+
+            <div class="center">
+              <h1></h1>
+              <button class="start">Start</button>
+            </div>
+            
+<!-- think about opacity, and layering a div image -->
+            <b class="class"></b>
+            
+            <div class="word-container">     
+              <div class="word-area"></div>
+            </div> 
             
             <input type="text" class="input-field">
-            
-            <ul class="results">
-            </ul> 
+
+            <ul class="results"></ul> 
 
         </div>
     <div>
