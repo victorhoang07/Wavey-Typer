@@ -16,6 +16,7 @@ export default class Game {
         this.numChars = 0
         this.wpm = 0
         this.accuracy = 0
+        this.cpm = 0
         this.wordArea = document.querySelector(".word-area")
         this.inputArea = document.querySelector(".input-field")
         this.ready = document.querySelector("button")
@@ -29,11 +30,27 @@ export default class Game {
 
     startGame () {
         // this.started = true;
+        this.reset()
         const characters = this.wordArea.querySelectorAll("span")
         characters.forEach( character => character.remove())
         this.generateWords();
         this.inputEventListener();
+        this.inputArea.value = ""
         this.inputArea.focus()
+    }
+
+    reset() {
+        clearInterval(this.decrement)
+        this.decrement
+        this.currentCharIndex = 0;
+        this.mistakes = 0
+        this.timer = 15
+        this.numChars = 0
+        this.wpm = 0
+        this.accuracy = 0
+        this.cpm = 0
+        let countdown = document.querySelector("b")
+        countdown.innerText = ""
     }
     
     startTimer () {
@@ -119,17 +136,24 @@ export default class Game {
         })
         this.wpm = Math.round(correct / 4.7) * 4
         this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
-        
-        console.log(this.accuracy)
+        this.cpm = correct * 4
+      
         
     }
 
     showResults() {
-        let li = document.createElement("li")
         let resultsUl = document.querySelector(".results")
+        let wpm = document.createElement("li")
+        let accuracy = document.createElement("li")
+        let cpm = document.createElement("li")
         this.calculateResults()
-        li.innerText = "wpm: " + this.wpm    
-        resultsUl.appendChild(li)
+        resultsUl.innerText = "Your"
+        wpm.innerText = "Words Per Minute: " + this.wpm
+        accuracy.innerText = "Accuracy: " + this.accuracy
+        cpm.innerText = "Characters per Minute: " + this.cpm    
+        resultsUl.appendChild(wpm)
+        resultsUl.appendChild(accuracy)
+        resultsUl.appendChild(cpm)
     }
 
 }

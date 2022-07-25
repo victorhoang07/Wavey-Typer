@@ -73,21 +73,21 @@ span {
 }
 
 .word-area .correct {
-    color: green;   
+    color: lightgreen;   
 }
 
 .word-area .incorrect {
-    color: red;
-    background-color: lightpink;
+    color: lightcoral;
+    // background-color: lightpink;
     
 }
 .word-area span {
     position: relative;
 }
 
-.current {
-    color: #17A2B8
-}
+// .current {
+//     color: #17A2B8
+// }
 
 .current::before {
     position: absolute;
@@ -107,8 +107,8 @@ span {
   }
 }
 
-.input-field {
-    opacity: 0;
-    z-index: -999;
-    position: absolute
-}
+// .input-field {
+//     opacity: 0;
+//     z-index: -999;
+//     position: absolute
+// }
