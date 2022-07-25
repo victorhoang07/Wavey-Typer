@@ -37,21 +37,9 @@ export default class Game {
         this.inputEventListener();
         this.inputArea.value = ""
         this.inputArea.focus()
+        this.ready.innerText = "Restart!"
     }
 
-    reset() {
-        clearInterval(this.decrement)
-        this.decrement
-        this.currentCharIndex = 0;
-        this.mistakes = 0
-        this.timer = 15
-        this.numChars = 0
-        this.wpm = 0
-        this.accuracy = 0
-        this.cpm = 0
-        let countdown = document.querySelector("b")
-        countdown.innerText = ""
-    }
     
     startTimer () {
         this.decrement = setInterval(this.decrementTimer, 1000)
@@ -69,8 +57,6 @@ export default class Game {
             clearInterval(this.decrement)
             this.waves.white = 100
             this.showResults()
-            const characters = this.wordArea.querySelectorAll("span")
-            characters.forEach( character => character.remove())
         }
     }
 
@@ -89,7 +75,7 @@ export default class Game {
             }
         }
     }
-
+    
     checkChars () {
  
         const characters = this.wordArea.querySelectorAll("span")
@@ -115,7 +101,7 @@ export default class Game {
             }
             this.currentCharIndex++;
         }
-
+        
         characters.forEach(span => span.classList.remove("current"))
         characters[this.currentCharIndex].classList.add("current")
     }
@@ -125,7 +111,7 @@ export default class Game {
         this.inputArea.addEventListener("input",() => this.checkChars())
         // this.inputArea.addEventListener("input",() => this.waves.animateCorrect(this.ctx), {once:true} )
         this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
-
+        
     }
     
     calculateResults (){
@@ -137,10 +123,10 @@ export default class Game {
         this.wpm = Math.round(correct / 4.7) * 4
         this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
         this.cpm = correct * 4
-      
+        
         
     }
-
+    
     showResults() {
         let resultsUl = document.querySelector(".results")
         let wpm = document.createElement("li")
@@ -156,4 +142,24 @@ export default class Game {
         resultsUl.appendChild(cpm)
     }
 
+    reset() {
+        clearInterval(this.decrement)
+        this.decrement
+        this.currentCharIndex = 0;
+        this.mistakes = 0
+        this.timer = 15
+        this.numChars = 0
+        this.wpm = 0
+        this.accuracy = 0
+        this.cpm = 0
+        let countdown = document.querySelector("b")
+        countdown.innerText = ""
+        const characters = this.wordArea.querySelectorAll("span")
+        characters.forEach( character => character.remove())
+        const results = document.querySelectorAll("li")
+        results.forEach(result => result.remove())
+        let resultsUl = document.querySelector(".results")
+        resultsUl.innerText = ""
+    }
+    
 }
