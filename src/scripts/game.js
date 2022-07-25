@@ -76,12 +76,14 @@ export default class Game {
                 // this.waves.animateCorrect(this.ctx)
                 this.waves.color = 200
                 
+                
             } else {
                 characters[this.currentCharIndex].classList.add("incorrect")
                 this.mistakes++; 
                 // this.ctx.clearRect()
                 // this.waves.animateIncorrect(this.ctx)
-                this.waves.color = 2
+                this.waves.color = 20
+                // this.waves.frequence  FIX THIS SOON 
             }
             this.currentCharIndex++;
         }
