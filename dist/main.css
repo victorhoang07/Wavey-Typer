@@ -111,6 +111,12 @@ span {
     opacity: 1;
   }
 }
+.input-field {
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
+}
+
 .imgbox {
   background-size: 100% auto;
   background-repeat: repeat-x;

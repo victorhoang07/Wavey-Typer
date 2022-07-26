@@ -41,3 +41,7 @@ In Wavey Typer, players will be able to:
  - Monday : most likely working on the circles again in addition to css. 
  -Tuesday : html and css to finish up. If i have time, create a chart for final results as well.
  -Wednesday : finishing touches
+
+ ## Music Credit
+
+ Ghostrifter Official - Morning Routine

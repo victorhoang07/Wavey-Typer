@@ -13,7 +13,8 @@ export default class Game {
         this.audio = audio
         this.currentCharIndex = 0;
         this.mistakes = 0
-        this.timer = 15
+        this.timer = 30
+        this.numWords = 60
         this.numChars = 0
         this.wpm = 0
         this.accuracy = 0
@@ -28,6 +29,7 @@ export default class Game {
         // this.ready.preventDefault();
         this.ready.addEventListener("click", () => this.startGame() )
         this.inputEventListener();
+        window.addEventListener("click", () => this.inputArea.focus())
     }
 
     startGame () {
@@ -62,7 +64,7 @@ export default class Game {
 
 
     generateWords() {
-        for (let i = 0; i < 40; i++)  {
+        for (let i = 0; i < this.numWords; i++)  {
             let randomIndex = Math.floor(Math.random() * Dictionary.length)
             let word = Dictionary[randomIndex].split('')
             word.push(" ") 
@@ -108,9 +110,7 @@ export default class Game {
     
     inputEventListener (){
         this.inputArea.addEventListener("input",() => this.checkChars())
-        // this.inputArea.addEventListener("input",() => this.waves.animateCorrect(this.ctx), {once:true} )
-        // this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
-        
+
     }
     
     calculateResults (){
@@ -119,9 +119,9 @@ export default class Game {
         characters.forEach( char => {
             if (char.classList.contains("correct")) correct +=1
         })
-        this.wpm = Math.round(correct / 4.7) * 4
+        this.wpm = Math.round(correct / 4.7) * 2
         this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
-        this.cpm = correct * 4
+        this.cpm = correct * 2
         
         
     }
@@ -146,7 +146,7 @@ export default class Game {
         this.decrement
         this.currentCharIndex = 0;
         this.mistakes = 0
-        this.timer = 15
+        this.timer = 30
         this.numChars = 0
         this.wpm = 0
         this.accuracy = 0

@@ -1,6 +1,7 @@
 import Game from "./scripts/game"
 import Wave from "./scripts/waves_view"
 import Music from "./scripts/audio"
+
 document.addEventListener("DOMContentLoaded", function() {
     
     const canvas = document.querySelector('canvas');
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 i++;
                 setTimeout(typeWriter, 250);
             }
-        }
+        } 
         typeWriter()
     
     // window.addEventListener('keydown', function (e) {
