@@ -5,11 +5,12 @@ import Dictionary from "./dictionary"
 
 export default class Game {
 
-    constructor (canvas, waves,ctx) {
-        this.started = false
+    constructor (canvas, waves, ctx, audio) {
+
         this.waves = waves
         this.ctx = ctx
         this.canvas = canvas
+        this.audio = audio
         this.currentCharIndex = 0;
         this.mistakes = 0
         this.timer = 15
@@ -26,26 +27,22 @@ export default class Game {
     readyEventlistener() {
         // this.ready.preventDefault();
         this.ready.addEventListener("click", () => this.startGame() )
+        this.inputEventListener();
     }
 
     startGame () {
-        // this.started = true;
         this.reset()
-        const characters = this.wordArea.querySelectorAll("span")
-        characters.forEach( character => character.remove())
         this.generateWords();
-        this.inputEventListener();
         this.inputArea.value = ""
         this.inputArea.focus()
         this.ready.innerText = "Restart!"
+        this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
     }
 
-    
+    // fix the timer to countdown after 3,2,1
     startTimer () {
         this.decrement = setInterval(this.decrementTimer, 1000)
     }
-
-    
 
     decrementTimer() {
         if (this.timer > 0) {
@@ -93,16 +90,12 @@ export default class Game {
                 this.waves.color = 200
                 this.waves.white = 50
                 this.waves.direction = 1
-                
+                this.audio.playCorrect()
             } else {
                 characters[this.currentCharIndex].classList.add("incorrect")
                 this.mistakes++; 
-                // this.ctx.clearRect()
-                // this.waves.animateIncorrect(this.ctx)
                 this.waves.color = 20
                 this.waves.direction = -1
-                // this.waves.frequency = this.frequency * -1
-                // this.waves.frequence  FIX THIS SOON 
             }
             this.currentCharIndex++;
         }
@@ -115,7 +108,7 @@ export default class Game {
     inputEventListener (){
         this.inputArea.addEventListener("input",() => this.checkChars())
         // this.inputArea.addEventListener("input",() => this.waves.animateCorrect(this.ctx), {once:true} )
-        this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
+        // this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
         
     }
     

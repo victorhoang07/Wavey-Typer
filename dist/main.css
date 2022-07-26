@@ -52,6 +52,12 @@ h1 {
   display: inline-block;
 }
 
+.lofi-button {
+  position: absolute;
+  right: 5px;
+  display: inline-block;
+}
+
 span {
   font-size: 30px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;

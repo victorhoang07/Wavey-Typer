@@ -51,6 +51,13 @@ h1 {
     left: 5px;
     display: inline-block;
 }
+
+.lofi-button {
+    position: absolute;
+    right: 5px;
+    display: inline-block;
+}
+
 span {
     // display: inline-block;
     font-size: 30px;
@@ -111,21 +118,9 @@ span {
 //     position: absolute
 // }
 
-// img {
-//     object-fit: fill;
-// }
-
-// body {
-//     background: "src/images/galaxy.png";
-//     background-repeat: repeat-x;
-//     background-repeat: repeat;
-// }
 
 
 .imgbox {
-//     display: grid;
-//     width: 100%;
-//     height: 100%;
     background-size: 100% auto;
     background-repeat: repeat-x;
     background-repeat: repeat-y;
@@ -134,7 +129,4 @@ span {
 .fit {
     width: 100%;
     height: 100%;
-    // margin: auto;
-    // background-size: 100% auto;
-    // background-repeat: repeat-y;
 }

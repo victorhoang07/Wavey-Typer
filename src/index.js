@@ -1,6 +1,6 @@
 import Game from "./scripts/game"
 import Wave from "./scripts/waves_view"
-
+import Music from "./scripts/audio"
 document.addEventListener("DOMContentLoaded", function() {
     
     const canvas = document.querySelector('canvas');
@@ -15,22 +15,23 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
 
+    const music = new Music ()
     const waves = new Wave(canvas, ctx)
-    const game = new Game(canvas, waves ,ctx)
-    waves.animateCorrect(ctx)
-    // game.startGame()
-    game.readyEventlistener()
+    const game = new Game(canvas, waves ,ctx, music)
 
-    var i = 0;
-    var txt = 'Wavey Typer';
-    function typeWriter() {
-            if (i < txt.length) {
-            document.querySelector("h1").innerHTML += txt.charAt(i);
-            i++;
-            setTimeout(typeWriter, 250);
+    waves.animateCorrect(ctx)
+    game.readyEventlistener()
+    music.lofiEventlistener()
+        var i = 0;
+        var txt = 'Wavey Typer';
+        function typeWriter() {
+                if (i < txt.length) {
+                document.querySelector("h1").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, 250);
+            }
         }
-    }
-    typeWriter()
+        typeWriter()
     
     // window.addEventListener('keydown', function (e) {
     // document.querySelector('p').innerHTML = `You pressed ${e.key}`;
