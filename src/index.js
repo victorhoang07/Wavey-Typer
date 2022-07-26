@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     waves.animateCorrect(ctx)
     game.readyEventlistener()
-    music.lofiEventlistener()
+    music.handleEventlistener()
         var i = 0;
         var txt = 'Wavey Typer';
         function typeWriter() {

@@ -13,7 +13,7 @@ export default class Wave {
             frequency: 0.025
         }   
         this.frequency = this.wave1.frequency
-        this.direction = 1 // work on this as well
+        this.direction = 1
         this.color = 200
         this.white = 100
         // this.color = {
@@ -58,36 +58,4 @@ export default class Wave {
         }
         ctx.stroke()
     }
-
-    // correctWave3 (ctx) {
-    
-    //     ctx.fillRect(0,0, this.width, this.height)
-    //     ctx.beginPath()
-    //     ctx.moveTo(this.width / 1.1, -20)
-    //     for (let i = 1; i < this.width; i++) {
-    //         ctx.lineTo(this.width / 1.1 + Math.sin(i * this.wave1.length + this.frequency) * this.wave1.amplitude * Math.sin(this.frequency), i) 
-    //     }
-    //     ctx.lineWidth = 5
-    //     ctx.strokeStyle = `hsl(${this.color.h * Math.sin(this.frequency)}, 50%, 50%)`
-    //     ctx.fillStyle = 'rgba(0,0,10,0.10)'
-    //     ctx.stroke()
-    //     this.frequency += this.wave1.frequency
-    // }
-
-    // correctWave4 (ctx) {
-    
-    //     ctx.fillRect(0,0, this.width, this.height)
-    //     ctx.beginPath()
-    //     ctx.moveTo(this.width / 10, -20)
-    //     for (let i = 1; i < this.width; i++) {
-    //         ctx.lineTo(this.width / 10 + Math.sin(i * this.wave1.length - this.frequency) * this.wave1.amplitude * Math.sin(this.frequency), i) 
-    //     }
-    //     ctx.lineWidth = 5
-    //     ctx.strokeStyle = `hsl(${this.color.h * Math.sin(this.frequency)}, 50%, 50%)`
-    //     ctx.fillStyle = 'rgba(0,0,10,0.10)'
-    //     ctx.stroke()
-    //     this.frequency += this.wave1.frequency
-    // }
-    
-
 }

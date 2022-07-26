@@ -96,6 +96,7 @@ export default class Game {
                 this.mistakes++; 
                 this.waves.color = 20
                 this.waves.direction = -1
+                this.audio.playIncorrect()
             }
             this.currentCharIndex++;
         }

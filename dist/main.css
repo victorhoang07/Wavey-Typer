@@ -58,6 +58,12 @@ h1 {
   display: inline-block;
 }
 
+.mute-button {
+  position: absolute;
+  right: 20vh;
+  display: inline-block;
+}
+
 span {
   font-size: 30px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
