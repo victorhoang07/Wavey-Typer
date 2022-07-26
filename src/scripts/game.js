@@ -92,7 +92,7 @@ export default class Game {
                 // this.waves.animateCorrect(this.ctx)
                 this.waves.color = 200
                 this.waves.white = 50
-                this.waves.oppositeDir = 1
+                this.waves.direction = 1
                 
             } else {
                 characters[this.currentCharIndex].classList.add("incorrect")
@@ -100,7 +100,7 @@ export default class Game {
                 // this.ctx.clearRect()
                 // this.waves.animateIncorrect(this.ctx)
                 this.waves.color = 20
-                this.waves.oppositeDir = -1
+                this.waves.direction = -1
                 // this.waves.frequency = this.frequency * -1
                 // this.waves.frequence  FIX THIS SOON 
             }

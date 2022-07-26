@@ -99,3 +99,6 @@ span {
     opacity: 1;
   }
 }
+img {
+  object-fit: fill;
+}

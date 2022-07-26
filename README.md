@@ -1,3 +1,5 @@
+Live: https://victorhoang07.github.io/Wavey-Typer/
+
 #  Background
 
 Wavey Typer is a typing-based game. With the help of visual and audio cues, the player will be able to quickly recognize mistakes they make or every completed word

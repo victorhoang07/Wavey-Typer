@@ -13,7 +13,7 @@ export default class Wave {
             frequency: 0.025
         }   
         this.frequency = this.wave1.frequency
-        this.oppositeDir = 1 // work on this as well
+        this.direction = 1 // work on this as well
         this.color = 200
         this.white = 100
         // this.color = {
@@ -39,7 +39,7 @@ export default class Wave {
         ctx.beginPath()
         ctx.moveTo(-20, this.height / 11)
         for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i, this.height / 11 + Math.sin(i * this.wave1.length - (this.oppositeDir * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency)) 
+            ctx.lineTo(i, this.height / 11 + Math.sin(i * this.wave1.length - (this.direction * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency)) 
         }                                                            // look here ^^ for backwards, MAKE IT NEGATIVE  maybe create a helper function
         ctx.lineWidth = 5
         ctx.strokeStyle = `hsl(${this.color * Math.sin(this.frequency)}, 50%, ${this.white}%)`
@@ -54,7 +54,7 @@ export default class Wave {
         ctx.beginPath()
         ctx.moveTo(-20, this.height / 1.1 )
         for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i,this.height / 1.1 + Math.sin(i * this.wave1.length + (this.oppositeDir * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency))
+            ctx.lineTo(i,this.height / 1.1 + Math.sin(i * this.wave1.length + (this.direction * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency))
         }
         ctx.stroke()
     }
