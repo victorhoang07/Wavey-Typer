@@ -29,12 +29,42 @@
           <audio class="lofi" src="src/audio/Morning-Routine-Lofi-Study-Music.mp3" type="audio/mpeg"></audio>
         </div>
 
-        <b class="class"></b>
+        <b class="timer"></b>
+        
+        <div class="instructions">
+          <div class="instructions-header">
+            <div>Instructions</div>
+          </div>
+
+          <div class="instructions-body">
+              Wavey Typer is a typing-based games aimed to improve your typing speed and accuracy.
+              <br>
+              <br>
+              To begin, click 'Start!'. If you mess up and would like to restart, no worries,
+              you can click 'Restart!' to do so.
+              <br>
+              <br>
+              There will be randomly generated words in the middle. Try to type as many as you can
+              within the 30 second time frame.
+              <br>
+              <br>
+              As you play, enjoy the scene as they will change according to what you type.
+              <br>
+              <br>
+              In addition, there are sounds and music that accompany the game. 
+              <br>
+              <br>
+              *HIGHLY SUGGEST SOUND AND MUSIC ON*
+          </div>
+
+        </div>
         
         <div class="word-container">     
           <div class="word-area"></div>
         </div> 
 
+        <input type="text" class="input-field">
+        
         <audio class="correct-audio" src="src/audio/correct1.mp3"></audio>
         <audio class="correct-audio" src="src/audio/correct2.mp3"></audio>
         <audio class="correct-audio" src="src/audio/correct3.wav"></audio>
@@ -42,10 +72,12 @@
         <audio class="correct-audio" src="src/audio/correct5.mp3"></audio>
         <audio class="incorrect-audio" src="src/audio/incorrect.wav"></audio>
         
+        <div class="results-modal">
+          <div>
+            <ul class="results"></ul> 
+          </div>
+        </div>
         
-        <input type="text" class="input-field">
-        
-        <ul class="results"></ul> 
         
       </div>
       <div class="imgbox">

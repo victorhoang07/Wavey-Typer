@@ -64,6 +64,21 @@ h1 {
   display: inline-block;
 }
 
+.instructions {
+  margin-top: 10vh;
+  border: 2px solid wheat;
+}
+
+.instructions-header {
+  border-bottom: 2px solid wheat;
+  font-size: 200%;
+  padding: 10px;
+}
+
+.instructions-body {
+  font-size: 150%;
+}
+
 span {
   font-size: 30px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;

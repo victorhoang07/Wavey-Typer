@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
     canvas.height = window.innerHeight
     })
 
-
     const music = new Music ()
     const waves = new Wave(canvas, ctx)
     const game = new Game(canvas, waves ,ctx, music)

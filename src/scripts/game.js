@@ -14,7 +14,7 @@ export default class Game {
         this.currentCharIndex = 0;
         this.mistakes = 0
         this.timer = 30
-        this.numWords = 60
+        this.numWords = 55
         this.numChars = 0
         this.wpm = 0
         this.accuracy = 0
@@ -22,11 +22,12 @@ export default class Game {
         this.wordArea = document.querySelector(".word-area")
         this.inputArea = document.querySelector(".input-field")
         this.ready = document.querySelector("button")
+        this.countdown = document.querySelector("b")
+        this.instructions = document.querySelector(".instructions")
         this.decrementTimer = this.decrementTimer.bind(this)
     }
     
     readyEventlistener() {
-        // this.ready.preventDefault();
         this.ready.addEventListener("click", () => this.startGame() )
         this.inputEventListener();
         window.addEventListener("click", () => this.inputArea.focus())
@@ -34,8 +35,10 @@ export default class Game {
 
     startGame () {
         this.reset()
+        this.instructions.remove()
         this.generateWords();
         this.inputArea.value = ""
+        this.countdown.innerText = this.timer
         this.inputArea.focus()
         this.ready.innerText = "Restart!"
         this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
@@ -48,9 +51,9 @@ export default class Game {
 
     decrementTimer() {
         if (this.timer > 0) {
-        let countdown = document.querySelector("b")
-        this.timer--;
-        countdown.innerText = this.timer;
+            let countdown = document.querySelector("b")
+            this.timer--;
+            countdown.innerText = this.timer;
         } 
         else { 
             clearInterval(this.decrement)
@@ -109,7 +112,7 @@ export default class Game {
     
     
     inputEventListener (){
-        this.inputArea.addEventListener("input",() => this.checkChars())
+        this.inputArea.addEventListener("input", () => this.checkChars())
 
     }
     
@@ -117,13 +120,11 @@ export default class Game {
         const characters = this.wordArea.querySelectorAll("span")
         let correct = 0
         characters.forEach( char => {
-            if (char.classList.contains("correct")) correct +=1
+            if (char.classList.contains("correct")) correct += 1
         })
         this.wpm = Math.round(correct / 4.7) * 2
         this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
         this.cpm = correct * 2
-        
-        
     }
     
     showResults() {

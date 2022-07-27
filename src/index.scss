@@ -19,8 +19,6 @@ canvas {
 
 .container canvas, #overlay {
     position: absolute;
-    // display: flex;
-    // justify-content: center;
 }
 
 #overlay {  
@@ -62,6 +60,25 @@ h1 {
     position: absolute;
     right: 20vh;
     display: inline-block;
+}
+
+.instructions {
+    margin-top: 10vh;
+    // width: 500px;    
+    // border: 2px solid rgb(101, 101, 240);
+    border: 2px solid wheat;
+
+}
+
+.instructions-header {
+    // border-bottom: 2px solid rgb(41, 41, 158);
+    border-bottom: 2px solid wheat;
+    font-size: 200%;
+    padding: 10px;
+}
+
+.instructions-body {
+    font-size: 150%;
 }
 
 span {
