@@ -45,6 +45,7 @@ canvas {
    width: 40px;
    margin-top: 10px;
 }
+
 .linkedin {
    position: absolute;
    left: 10vh;
@@ -74,9 +75,11 @@ button {
    color: #DEECFC;
    font-size: 2vh;
 }
+
 button:hover {
    background-color: #5B6D5B;
 }
+
 .start {
    position: absolute;
    margin-top: 10vh;
@@ -125,7 +128,6 @@ b {
    font-size: 3vh;
 }
  
- 
 .word-container {
    display: flex;
    margin-top: 10%;
@@ -154,6 +156,7 @@ span {
    color: lightcoral;
   
 }
+
 .word-area span {
    position: relative;
    // width: 20px;
@@ -176,6 +179,7 @@ span {
    background: #17A2B8;
    animation: blink 1s ease-in-out infinite;
 }
+
 @keyframes blink{
  20%{
    opacity: 1;
@@ -199,7 +203,6 @@ li {
    font-size: 20px;
    padding-top: 20px;
 }
- 
  
 .input-field {
    opacity: 0;

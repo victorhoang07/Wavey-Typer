@@ -18,19 +18,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const music = new Music ()
     const waves = new Wave(canvas, ctx)
     const game = new Game(canvas, waves ,ctx, music)
-
+    
+    var i = 0;
+    var txt = 'Wavey Typer';
+    function typeWriter() {
+        if (i < txt.length) {
+            document.querySelector("h1").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, 250);
+        }
+    } 
+    
     waves.animateCorrect(ctx)
     game.readyEventlistener()
     music.handleEventlistener()
-        var i = 0;
-        var txt = 'Wavey Typer';
-        function typeWriter() {
-                if (i < txt.length) {
-                document.querySelector("h1").innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, 250);
-            }
-        } 
-        
     typeWriter()
+
 })
