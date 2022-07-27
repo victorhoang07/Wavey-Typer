@@ -1,204 +1,220 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto+Mono:wght@300&display=swap');
+ 
 html, body {margin: 0; height: 100%; overflow: hidden}
+ 
 canvas {
-    background-color: black;
-    position: absolute;
-    opacity: 75%;
+   background-color: black;
+   position: absolute;
+   opacity: 75%;
 }
-
+ 
 .container {
-    position: relative;
-    // text-align: center;
-    // color: white
+   position: relative;
+   font-family: 'Nunito', sans-serif;
 }
-
+ 
 .container p {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
 }
-
+ 
 .container canvas, #overlay {
-    position: absolute;
+   position: absolute;
 }
-
-#overlay {  
-    color: white;
-    text-align: center;
-    margin: 20px;
-    width: 95%;
-    padding: 10px;
+ 
+#overlay { 
+   color: white;
+   text-align: center;
+   margin: 20px;
+   width: 95%;
+   padding: 10px;
 }
-
+ 
 .center{
-    display: flex;
-    flex-direction: row;
-    margin-top: 10vh;
-    justify-content: center;
+   display: flex;
+   flex-direction: row;
+   margin-top: 10vh;
+   justify-content: center;
 }
-
+ 
+ 
 .github {
-    position: absolute;
-    left: 2vh;
-    
-    display: inline-block;
-    width: 40px;
+   position: absolute;
+   left: 2vh;
+   display: inline-block;
+   width: 40px;
+   margin-top: 10px;
 }
 .linkedin {
-    position: absolute;
-    left: 10vh;
-    display: inline-block;
-    width: 45px;
+   position: absolute;
+   left: 10vh;
+   display: inline-block;
+   width: 45px;
+   margin-top: 10px;
 }
-
+ 
+.github:hover {
+   width: 55px;
+}
+ 
+.linkedin:hover {
+   width: 60px;
+}
+ 
 h1 {
-    font-size: 40px;
-    // text-align: center;
-
+   font-size: 7vh;
+   color: #DEECFC;
 }
-
+ 
 button {
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    border: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   background: transparent;
+   cursor: pointer;
+   border: none;
+   padding: 5px;
+   color: #DEECFC;
+   font-size: 2vh;
 }
 button:hover {
-    background-color: #7A4495;
+   background-color: #5B6D5B;
 }
-
 .start {
-    position: absolute;
-    margin-top: 10vh;
-    // left: 5px;
-    // display: inline-block;
+   position: absolute;
+   margin-top: 10vh;
+   border-radius: 25px;
 }
-
+ 
 .lofi-button {
-    position: absolute;
-    right: 2vh;
-    display: inline-block;
-    // font
+   position: absolute;
+   right: 1vw;
+   display: inline-block;
+   border-radius: 25px;
+   margin-top: 20px;
 }
-
+ 
 .mute-button {
-    position: absolute;
-    right: 17vh;
-    display: inline-block;
+   position: absolute;
+   right: 10vw;
+   display: inline-block;
+   border-radius: 25px;
+   margin-top: 20px;
 }
-
+ 
 b {
-    font-size: 20px;
-    position: absolute;
-    margin-top: 15vh;
+   font-size: 3vh;
+   position: absolute;
+   margin-top: 17vh;
+   color: #DEECFC;
 }
-
+ 
 .instructions {
-    width: 85%;    
-    border: 2px solid wheat;
-    border-radius: 25px;
-    margin: auto;
-    margin-top: 10vh;
+   width: 85%;   
+   border: 2px solid #5B6D5B;
+   color: #DEECFC ;
+   border-radius: 25px;
+   margin: auto;
+   margin-top: 4%;
 }
-
+ 
 .instructions-header {
-    border-bottom: 2px solid wheat;
-    font-size: 5vh;
-    padding: 10px;
+   border-bottom: 2px solid #5B6D5B;
+   font-size: 5vh;
+   padding: 10px;
 }
-
+ 
 .instructions-body {
-    font-size: 3vh;
+   font-size: 3vh;
 }
-
-
+ 
+ 
 .word-container {
-    display: flex;
-    margin-top: 10%;
-    justify-content: center;
-    
+   display: flex;
+   margin-top: 10%;
+   justify-content: center;
+  
 }
 .word-area {
-    position: absolute;
-    color: lightgrey;
-    width: 80vw;
-    text-align: justify; // this changes the alignment
+   position: absolute;
+   color: lightgrey;
+   width: 80vw;
+   text-align: justify; // this changes the alignment
 }
-
+// turn off css text wrap
 span {
-    font-size: 30px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 1px;
-    color: rgb(151, 151, 151);
+   font-size: 30px;
+   padding: 1px;
+   color: rgb(151, 151, 151);
+   white-space: pre-line;
 }
-
+ 
 .word-area .correct {
-    color: lightgreen;   
+   color: lightgreen;  
 }
-
+ 
 .word-area .incorrect {
-    color: lightcoral;
-    
+   color: lightcoral;
+  
 }
 .word-area span {
-    position: relative;
-    // width: 20px;
-    // look here for the padding bot
+   position: relative;
+   // width: 20px;
+   // look here for the padding bot
 }
-
+ 
 .current {
-    color: rgb(202, 202, 202);
+   color: rgb(202, 202, 202);
 }
-
+ 
 .current::before {
-    position: absolute;
-    content: "";
-    height: 2px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    border-radius: 5px;
-    background: #17A2B8;
-    animation: blink 1s ease-in-out infinite;
+   position: absolute;
+   content: "";
+   height: 2px;
+   width: 100%;
+   bottom: 0;
+   left: 0;
+   opacity: 0;
+   border-radius: 5px;
+   background: #17A2B8;
+   animation: blink 1s ease-in-out infinite;
 }
 @keyframes blink{
-  20%{ 
-    opacity: 1; 
-  }
+ 20%{
+   opacity: 1;
+ }
 }
-
+ 
 .results-box {
-    border: 2px solid wheat;
-    border-radius: 25px;
-    width: 30%;
-    padding: 20px;
-    margin: auto;
+   border: 2px solid #5B6D5B;
+   border-radius: 25px;
+   width: 30%;
+   padding: 20px;
+   margin: auto;
+   color: #DEECFC;
 }
-
+ 
 ul {
-    font-size: 40px
+   font-size: 40px
 }
-
+ 
 li {
-    font-size: 20px;
-    padding-top: 20px;
+   font-size: 20px;
+   padding-top: 20px;
 }
-
-
+ 
+ 
 .input-field {
-    opacity: 0;
-    z-index: -999;
-    position: absolute
+   opacity: 0;
+   z-index: -999;
+   position: absolute;
 }
-
+ 
 .imgbox {
-    background-size: 100% auto;
-    background-repeat: repeat-x;
-    background-repeat: repeat-y;
+   background-size: 100% auto;
+   background-repeat: repeat-x;
+   background-repeat: repeat-y;
+}
+ 
+.fit {
+   width: 100%;
+   height: 100%;
 }
 
-.fit {
-    width: 100%;
-    height: 100%;
-}
