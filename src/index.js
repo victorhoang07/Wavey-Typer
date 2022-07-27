@@ -31,9 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(typeWriter, 250);
             }
         } 
-        typeWriter()
-    
-    // window.addEventListener('keydown', function (e) {
-    // document.querySelector('p').innerHTML = `You pressed ${e.key}`;
-    // }, false);
+        
+    typeWriter()
 })

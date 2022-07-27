@@ -4,18 +4,18 @@ export default class Wave {
     constructor(canvas, ctx) {
         this.canvas = canvas;
         this.ctx = ctx;
-        this.width = canvas.width
-        this.height = canvas.height
+        this.width = canvas.width;
+        this.height = canvas.height;
         this.wave1 = {
             y: this.height,
             length: 0.01,
             amplitude: 40,
             frequency: 0.025
         }   
-        this.frequency = this.wave1.frequency
-        this.direction = 1
-        this.color = 200
-        this.white = 100
+        this.frequency = this.wave1.frequency;
+        this.direction = 1;
+        this.color = 200;
+        this.white = 100;
         // this.color = {
         //     h: 200,
         //     s: 50,
@@ -35,12 +35,12 @@ export default class Wave {
 
     correctWave1 (ctx) {
 
-        ctx.fillRect(0,0, this.width, this.height)
+        ctx.fillRect(0,0, this.canvas.width, this.canvas.height)
         ctx.beginPath()
-        ctx.moveTo(-20, this.height / 11)
-        for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i, this.height / 11 + Math.sin(i * this.wave1.length - (this.direction * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency)) 
-        }                                                            // look here ^^ for backwards, MAKE IT NEGATIVE  maybe create a helper function
+        ctx.moveTo(-20, this.canvas.height / 11)
+        for (let i = 1; i < this.canvas.width; i++) {
+            ctx.lineTo(i, this.canvas.height / 11 + Math.sin(i * this.wave1.length - (this.direction * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency)) 
+        }
         ctx.lineWidth = 5
         ctx.strokeStyle = `hsl(${this.color * Math.sin(this.frequency)}, 50%, ${this.white}%)`
         ctx.fillStyle = 'rgba(0,0,0,0.03)'
@@ -52,9 +52,9 @@ export default class Wave {
     correctWave2 (ctx) {
 
         ctx.beginPath()
-        ctx.moveTo(-20, this.height / 1.1 )
-        for (let i = 1; i < this.width; i++) {
-            ctx.lineTo(i,this.height / 1.1 + Math.sin(i * this.wave1.length + (this.direction * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency))
+        ctx.moveTo(-20, this.canvas.height / 1.1 )
+        for (let i = 1; i < this.canvas.width; i++) {
+            ctx.lineTo(i,this.canvas.height / 1.1 + Math.sin(i * this.wave1.length + (this.direction * this.frequency)) * this.wave1.amplitude * Math.sin(this.frequency))
         }
         ctx.stroke()
     }

@@ -41,59 +41,87 @@ canvas {
   justify-content: center;
 }
 
+.github {
+  position: absolute;
+  left: 2vh;
+  display: inline-block;
+}
+
 h1 {
   font-size: 40px;
 }
 
-.start {
+button {
+  background: transparent;
+  color: white;
   cursor: pointer;
+  border: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover {
+  background-color: #7A4495;
+}
+
+.start {
   position: absolute;
-  left: 5px;
-  display: inline-block;
+  margin-top: 10vh;
 }
 
 .lofi-button {
   position: absolute;
-  right: 5px;
+  right: 2vh;
   display: inline-block;
 }
 
 .mute-button {
   position: absolute;
-  right: 20vh;
+  right: 17vh;
   display: inline-block;
 }
 
+b {
+  font-size: 20px;
+  position: absolute;
+  margin-top: 15vh;
+}
+
 .instructions {
-  margin-top: 10vh;
+  width: 85%;
   border: 2px solid wheat;
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 10vh;
 }
 
 .instructions-header {
   border-bottom: 2px solid wheat;
-  font-size: 200%;
+  font-size: 5vh;
   padding: 10px;
 }
 
 .instructions-body {
-  font-size: 150%;
+  font-size: 3vh;
+}
+
+.word-container {
+  display: flex;
+  margin-top: 10%;
+  justify-content: center;
+}
+
+.word-area {
+  position: absolute;
+  color: lightgrey;
+  width: 80vw;
+  text-align: justify;
 }
 
 span {
   font-size: 30px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding: 1px;
-}
-
-.word-container {
-  display: flex;
-  margin-top: 20vh;
-  justify-content: center;
-}
-
-.word-area {
-  color: lightgrey;
-  width: 80vw;
+  color: rgb(151, 151, 151);
 }
 
 .word-area .correct {
@@ -106,6 +134,10 @@ span {
 
 .word-area span {
   position: relative;
+}
+
+.current {
+  color: rgb(202, 202, 202);
 }
 
 .current::before {
@@ -126,6 +158,23 @@ span {
     opacity: 1;
   }
 }
+.results-box {
+  border: 2px solid wheat;
+  border-radius: 25px;
+  width: 30%;
+  padding: 20px;
+  margin: auto;
+}
+
+ul {
+  font-size: 40px;
+}
+
+li {
+  font-size: 20px;
+  padding-top: 20px;
+}
+
 .input-field {
   opacity: 0;
   z-index: -999;

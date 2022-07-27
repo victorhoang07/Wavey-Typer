@@ -40,7 +40,7 @@ export default class Game {
         this.inputArea.value = ""
         this.countdown.innerText = this.timer
         this.inputArea.focus()
-        this.ready.innerText = "Restart!"
+        this.ready.innerText = "Restart"
         this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
     }
 
@@ -61,6 +61,8 @@ export default class Game {
             this.showResults()
             const characters = this.wordArea.querySelectorAll("span")
             characters.forEach( character => character.remove())
+            const resultsBox = document.getElementById("results-box")
+            resultsBox.classList.add("results-box")
         }
     }
 
@@ -91,7 +93,6 @@ export default class Game {
         } else {
             if (characters[this.currentCharIndex].innerText === typedChars) {
                 characters[this.currentCharIndex].classList.add("correct")
-                // this.waves.animateCorrect(this.ctx)
                 this.waves.color = 200
                 this.waves.white = 50
                 this.waves.direction = 1
@@ -133,9 +134,9 @@ export default class Game {
         let accuracy = document.createElement("li")
         let cpm = document.createElement("li")
         this.calculateResults()
-        resultsUl.innerText = "Your"
-        wpm.innerText = "Words Per Minute: " + this.wpm
-        accuracy.innerText = "Accuracy: " + this.accuracy
+        resultsUl.innerText = "Your Results"
+        wpm.innerText = "Words per Minute: " + this.wpm
+        accuracy.innerText = "Accuracy: " + this.accuracy + "%"
         cpm.innerText = "Characters per Minute: " + this.cpm    
         resultsUl.appendChild(wpm)
         resultsUl.appendChild(accuracy)
@@ -160,6 +161,8 @@ export default class Game {
         results.forEach(result => result.remove())
         let resultsUl = document.querySelector(".results")
         resultsUl.innerText = ""
+        const resultsBox = document.getElementById("results-box")
+        resultsBox.classList.remove("results-box")
     }
     
 }
