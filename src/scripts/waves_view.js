@@ -16,14 +16,7 @@ export default class Wave {
         this.direction = 1;
         this.color = 200;
         this.white = 100;
-        // this.color = {
-        //     h: 200,
-        //     s: 50,
-        //     l: 50
-        // }
-        // this.startCorrect = requestAnimationFrame(() => this.animateCorrect(ctx))
-        // this.animateCorrect = this.animateCorrect.bind(this)
-        
+       
     }
 
     animateCorrect (ctx) {

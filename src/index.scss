@@ -26,7 +26,6 @@ canvas {
     text-align: center;
     margin: 20px;
     width: 95%;
-    // border: 3px solid white;
     padding: 10px;
 }
 
@@ -42,7 +41,13 @@ canvas {
     left: 2vh;
     
     display: inline-block;
-    // font
+    width: 40px;
+}
+.linkedin {
+    position: absolute;
+    left: 10vh;
+    display: inline-block;
+    width: 45px;
 }
 
 h1 {

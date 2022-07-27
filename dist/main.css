@@ -45,6 +45,14 @@ canvas {
   position: absolute;
   left: 2vh;
   display: inline-block;
+  width: 40px;
+}
+
+.linkedin {
+  position: absolute;
+  left: 10vh;
+  display: inline-block;
+  width: 45px;
 }
 
 h1 {
