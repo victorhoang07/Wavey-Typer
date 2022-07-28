@@ -125,7 +125,13 @@ export default class Game {
             if (char.classList.contains("correct")) correct += 1
         })
         this.wpm = Math.round(correct / 4.7) * 2
-        this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100);
+        let accuracy = 100 - Math.round(this.mistakes / (this.currentCharIndex + 1) * 100)
+        if (accuracy < 0) {
+            this.accuracy = 0;
+        } else {
+            this.accuracy = accuracy
+        }
+        
         this.cpm = correct * 2;
     }
     
