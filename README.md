@@ -32,16 +32,18 @@ In Wavey Typer, players will be able to:
 
  - Javascript
  - Canvas
- - D3
  - NPM and Webpack
 
  # Implementation Timeline 
 
  - friday + weekend : figure out game logic friday, some html friday and saturday, and figure out waves and circles on sunday using cavnas or d3.
  - Monday : most likely working on the circles again in addition to css. 
- -Tuesday : html and css to finish up. If i have time, create a chart for final results as well.
- -Wednesday : finishing touches
+ - Tuesday : html and css to finish up. If i have time, create a chart for final results as well.
+ - Wednesday : finishing touches
 
  ## Music Credit
 
- Ghostrifter Official - Morning Routine
+Morning Routine by Ghostrifter Official | https://soundcloud.com/ghostrifter-official
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY-SA 3.0
+https://creativecommons.org/licenses/by-sa/3.0/

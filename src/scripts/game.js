@@ -1,8 +1,5 @@
 import Dictionary from "./dictionary"
 
-// const typebox = document.querySelector(".box")
-// console.log(typebox)    
-
 export default class Game {
 
     constructor (canvas, waves, ctx, audio) {
@@ -28,49 +25,46 @@ export default class Game {
     }
     
     readyEventlistener() {
-        this.ready.addEventListener("click", () => this.startGame() )
+        this.ready.addEventListener("click", () => this.startGame());
         this.inputEventListener();
-        window.addEventListener("click", () => this.inputArea.focus())
-    }
+        window.addEventListener("click", () => this.inputArea.focus());
+    };
 
     startGame () {
-        this.reset()
-        this.instructions.remove()
+        this.reset();
+        this.instructions.remove();
         this.generateWords();
-        this.inputArea.value = ""
-        this.countdown.innerText = this.timer
-        this.inputArea.focus()
-        this.ready.innerText = "Restart"
-        this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true})
-    }
+        this.inputArea.value = "";
+        this.countdown.innerText = this.timer;
+        this.inputArea.focus();
+        this.ready.innerText = "Restart";
+        this.inputArea.addEventListener("input",this.startTimer.bind(this), {once: true});
+    };
 
-    // fix the timer to countdown after 3,2,1
     startTimer () {
-        this.decrement = setInterval(this.decrementTimer, 1000)
+        this.decrement = setInterval(this.decrementTimer, 1000);
     }
 
     decrementTimer() {
         if (this.timer > 0) {
-            let countdown = document.querySelector("b")
+            let countdown = document.querySelector("b");
             this.timer--;
             countdown.innerText = this.timer;
         } 
         else { 
             clearInterval(this.decrement)
-            this.waves.white = 100
-            this.showResults()
-            const characters = this.wordArea.querySelectorAll("span")
-            characters.forEach( character => character.remove())
-            const resultsBox = document.getElementById("results-box")
-            resultsBox.classList.add("results-box")
+            this.waves.white = 100;
+            this.showResults();
+            const characters = this.wordArea.querySelectorAll("span");
+            characters.forEach( character => character.remove());
+            const resultsBox = document.getElementById("results-box");
+            resultsBox.classList.add("results-box");
         }
     }
 
-
-
     generateWords() {
         for (let i = 0; i < this.numWords; i++)  {
-            let randomIndex = Math.floor(Math.random() * Dictionary.length)
+            let randomIndex = Math.floor(Math.random() * Dictionary.length);
             let word = Dictionary[randomIndex].split('')
             word.push(" ") 
             for (let j = 0; j < word.length; j++) {
@@ -124,45 +118,45 @@ export default class Game {
             if (char.classList.contains("correct")) correct += 1
         })
         this.wpm = Math.round(correct / 4.7) * 2
-        this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100)
-        this.cpm = correct * 2
+        this.accuracy = 100 - Math.round(this.mistakes / this.currentCharIndex * 100);
+        this.cpm = correct * 2;
     }
     
     showResults() {
         let resultsUl = document.querySelector(".results")
-        let wpm = document.createElement("li")
-        let accuracy = document.createElement("li")
-        let cpm = document.createElement("li")
-        this.calculateResults()
-        resultsUl.innerText = "Your Results"
-        wpm.innerText = "Words per Minute: " + this.wpm
-        accuracy.innerText = "Accuracy: " + this.accuracy + "%"
-        cpm.innerText = "Characters per Minute: " + this.cpm    
-        resultsUl.appendChild(wpm)
-        resultsUl.appendChild(accuracy)
-        resultsUl.appendChild(cpm)
+        let wpm = document.createElement("li");
+        let accuracy = document.createElement("li");
+        let cpm = document.createElement("li");
+        this.calculateResults();
+        resultsUl.innerText = "Your Results";
+        wpm.innerText = "Words per Minute: " + this.wpm;
+        accuracy.innerText = "Accuracy: " + this.accuracy + "%";
+        cpm.innerText = "Characters per Minute: " + this.cpm;
+        resultsUl.appendChild(wpm);
+        resultsUl.appendChild(accuracy);
+        resultsUl.appendChild(cpm);
     }
 
     reset() {
-        clearInterval(this.decrement)
-        this.decrement
-        this.currentCharIndex = 0;
-        this.mistakes = 0
-        this.timer = 30
-        this.numChars = 0
-        this.wpm = 0
-        this.accuracy = 0
-        this.cpm = 0
-        let countdown = document.querySelector("b")
-        countdown.innerText = ""
-        const characters = this.wordArea.querySelectorAll("span")
-        characters.forEach( character => character.remove())
-        const results = document.querySelectorAll("li")
-        results.forEach(result => result.remove())
-        let resultsUl = document.querySelector(".results")
-        resultsUl.innerText = ""
-        const resultsBox = document.getElementById("results-box")
-        resultsBox.classList.remove("results-box")
+        clearInterval(this.decrement);
+        this.decrement;
+        this.currentCharIndex = 0;;
+        this.mistakes = 0;
+        this.timer = 30;
+        this.numChars = 0;
+        this.wpm = 0;
+        this.accuracy = 0;
+        this.cpm = 0;
+        let countdown = document.querySelector("b");
+        countdown.innerText = "";
+        const characters = this.wordArea.querySelectorAll("span");
+        characters.forEach( character => character.remove());
+        const results = document.querySelectorAll("li");
+        results.forEach(result => result.remove());
+        let resultsUl = document.querySelector(".results");
+        resultsUl.innerText = "";
+        const resultsBox = document.getElementById("results-box");
+        resultsBox.classList.remove("results-box");
     }
     
 }

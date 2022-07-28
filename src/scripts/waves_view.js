@@ -14,7 +14,7 @@ export default class Wave {
         }   
         this.frequency = this.wave1.frequency;
         this.direction = 1;
-        this.color = 10;
+        this.color = 200;
         this.white = 100;
        
     }
