@@ -31,9 +31,9 @@ In Wavey Typer, players will be able to:
 
  # Technologies, Libraries, and API's
 
- - Javascript
- - Canvas
- - NPM and Webpack
+ - Javascript: Used for game logic and wave manipulation
+ - Canvas: Render waves
+ - NPM and Webpack: Used for JavaScript file bundling and project management
 
  # Implementation Timeline 
 

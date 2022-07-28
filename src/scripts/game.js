@@ -87,25 +87,32 @@ export default class Game {
         } else {
             if (characters[this.currentCharIndex].innerText === typedChars) {
                 characters[this.currentCharIndex].classList.add("correct")
-                this.waves.color = 200
-                this.waves.white = 50
-                this.waves.direction = 1
-                this.audio.playCorrect()
+                this.handleCorrect()
             } else {
                 characters[this.currentCharIndex].classList.add("incorrect")
-                this.mistakes++; 
-                this.waves.color = 20
-                this.waves.direction = -1
-                this.audio.playIncorrect()
+                this.handleIncorrect()
             }
             this.currentCharIndex++;
         }
-        
+
         characters.forEach(span => span.classList.remove("current"))
         characters[this.currentCharIndex].classList.add("current")
     }
     
+    handleCorrect() {
+        this.waves.color = 200;
+        this.waves.white = 50;
+        this.waves.direction = 1;
+        this.audio.playCorrect();
+    }
     
+    handleIncorrect() {
+        this.mistakes++; 
+        this.waves.color = 20
+        this.waves.direction = -1
+        this.audio.playIncorrect()
+    }
+
     inputEventListener (){
         this.inputArea.addEventListener("input", () => this.checkChars())
 
