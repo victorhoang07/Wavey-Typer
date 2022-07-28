@@ -1,6 +1,7 @@
 Live: https://victorhoang07.github.io/Wavey-Typer/
 
 #  Background
+![Alt Text](assets/images/background.png)
 
 Wavey Typer is a typing-based game. With the help of visual and audio cues, the player will be able to quickly recognize mistakes they make or every completed word
 
@@ -16,16 +17,16 @@ In Wavey Typer, players will be able to:
  - See their performance
  - Practice towards improved typing proficiency
 
- In addition, this project will include:
+ In addition, this project includes:
  - Instructions on how to play
- - Listen to Lo-fi music
+ - Option to play Lo-fi music
  
 
  # Wireframe
 
  This game will take place in the player's browser. There will be simple and intuitive buttons to navigate the through the webpage. There will be a button for the instructions and lo-fi music option. It will also feature links to my Github and Linkedin profile. 
  https://wireframe.cc/lwmihp
- ![Alt text](/wireframe.png)
+ ![Alt text](assets/images/wireframe.png)
 
 
  # Technologies, Libraries, and API's
@@ -36,10 +37,11 @@ In Wavey Typer, players will be able to:
 
  # Implementation Timeline 
 
- - friday + weekend : figure out game logic friday, some html friday and saturday, and figure out waves and circles on sunday using cavnas or d3.
- - Monday : most likely working on the circles again in addition to css. 
- - Tuesday : html and css to finish up. If i have time, create a chart for final results as well.
- - Wednesday : finishing touches
+ - Friday: Set up project and start planning out game logic.
+ - Weekend : Complete game logic functionality and render waves. 
+ - Monday : Create interactive sounds and wave manipulation based on player input
+ - Tuesday : Include music and HTML buttons for functionality.
+ - Wednesday : Finish styling and make code neat.
 
  ## Music Credit
 
