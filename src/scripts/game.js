@@ -13,6 +13,7 @@ export default class Game {
         this.timer = 30
         this.numWords = 55
         this.numChars = 0
+        this.currentWPM = 0
         this.wpm = 0
         this.accuracy = 0
         this.cpm = 0
@@ -50,6 +51,8 @@ export default class Game {
             let countdown = document.querySelector("b");
             this.timer--;
             countdown.innerText = this.timer;
+            // this.calcCurrentWPM()
+            // console.log(this.currentWPM)
         } 
         else { 
             clearInterval(this.decrement)
@@ -98,6 +101,16 @@ export default class Game {
         characters.forEach(span => span.classList.remove("current"))
         characters[this.currentCharIndex].classList.add("current")
     }
+
+    calcCurrentWPM() {
+        const characters = this.wordArea.querySelectorAll("span")
+        let correct = 0
+        characters.forEach( char => {
+            if (char.classList.contains("correct")) correct += 1
+        })
+        const timeElapsed = 30 - this.timer // 
+        this.currentWPM = Math.round((correct / 4.7) * (60 / timeElapsed))
+    }
     
     handleCorrect() {
         this.waves.color = 200;
@@ -131,7 +144,6 @@ export default class Game {
         } else {
             this.accuracy = accuracy
         }
-        
         this.cpm = correct * 2;
     }
     
